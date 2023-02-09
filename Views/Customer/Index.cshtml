@@ -1,0 +1,44 @@
+﻿@model List<technicalAssesment.Models.Domain.Customer>
+@addTagHelper*, Microsoft.AspNetCore.Mvc.TagHelpers
+@using System.Data
+
+
+@{
+    ViewData["Title"] = "All Customers";
+}
+
+
+<h1> All Customers</h1>
+<div style="text-align:right;" class="nav-item">
+    <p> <a class="btn btn-secondary" asp-area="" asp-controller="Customer" asp-action="AddCustomer" role="button"> Add Customers</a> </p>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Cellphone Number</th>
+            <th>Action</th>
+
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var customer in Model)
+        {
+            <tr>
+                <td>@customer.FirstName</td>
+                <td>@customer.LastName</td>
+                <td>@customer.cellphone</td>
+
+                <td><a asp-action="ReadMore" asp-controller="Customer">Read More...</a></td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
+
+
+
